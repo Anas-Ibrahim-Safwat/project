@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>Sign_Up</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/sign_up.css'%}" />
+        <script src="{% static 'js/signup.js'%}" async></script>
+        <style>
+            body {
+                display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 height: 100vh;
+                 background-image: url("{%static 'image/loginImage.jpg' %}");
+    }
+        </style>
+        
+    </head>
+    <body>
+    <form>
+        <h2>Sign up</h2>
+            <div>
+            <input type="text" id="userN"  required placeholder="Username *" autofocus >
+            </div>
+            <div>
+                <p id="u"></p>
+            </div>
+            <div>
+                <input type="password" id="passd1" required placeholder="Password *" required minlength="4" maxlength="15">
+            </div>
+            <div>
+                <p id="p"></p>
+            </div>
+            <div>
+                <input type="password" id="passd2" required placeholder="Confirm Password *" required minlength="4" maxlength="15">
+            </div>
+            <div>
+                <p id="m"></p>
+            </div>
+            <div>
+                <input type="email" id="email"  required placeholder="Email *" required >
+                
+            </div>
+            <div>
+                <p id="e"></p>
+            </div>
+        <div class="as" title="Click here if you want to sign up as admin">
+            <input type="checkbox"  id="_admin" name="-as" title="">
+            <label class="check">Sign Up As Admin:</label>
+
+        </div>
+        <div>
+        <button type="button" onclick="savedata()">Sign Up</button>
+        
+        </div>
+    </form>
+    </body>
+</html>

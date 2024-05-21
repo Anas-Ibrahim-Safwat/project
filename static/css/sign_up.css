@@ -1,0 +1,144 @@
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border:none;
+    border-radius: 30px;
+}
+
+
+
+form {
+    background-color: rgba(255, 240, 228, 0.55);
+    padding: 80px 100px 10px;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    top:25px;
+    box-shadow: 0 0 0 3px white;
+
+}
+
+
+form:hover{
+    box-shadow: 0 0 5px 5px white;
+}
+
+
+h2 {
+    position: relative;
+    bottom: 20px;
+    left:80px;
+    color: #4e342e;
+    margin-bottom: 10px;
+    padding: 5px;
+    width:65%;
+    border-radius: 60px;
+    font-size: 35px;
+}
+
+
+input[type="text"],
+input[type="password"] ,
+input[type="email"]{
+    position: relative;
+    bottom: 40px;
+    top:-5px;
+    right: 70px;
+    width:420px;
+    padding: 15px;
+    margin: 10px;
+    border: 3px solid #b08d6c;
+    border-radius: 50px;
+    background-color: #ede0cf;
+    font-size: 16px;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+
+input[type="text"]:focus,
+input[type="text"]:hover,
+input[type="password"]:focus,
+input[type="password"]:hover {
+    outline: none;
+    border-color: #4e342e;
+}
+
+
+input[type="text"]::placeholder,input[type="password"]::placeholder,input[type="email"]::placeholder{
+    color:#4e342e
+}
+
+
+.check{
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    bottom: 60px;
+    right: 40px;
+    color:#4e342e;
+    border-radius: 20px;
+    background-image: linear-gradient(to right,#d2b48c,#ede0cf,white);
+    margin: 1px;
+    padding:5px;
+    display:flex;
+    justify-content: space-around;
+    width:200px;
+    border-color: #f4dec1;
+    border: 3px solid #b08d6c;
+} 
+
+
+input[type="checkbox"]{
+    
+    accent-color:#4e342e;
+    position: relative;
+    bottom:28px;
+    left:180px;
+    width:20px;
+    height: 20px;
+}
+
+
+.as{
+    position:relative;
+    top:50px;
+    margin-bottom: 10px;
+}
+
+
+button {
+    padding:15px; 
+    margin: 50px 10px 10px 10px;
+    background-color: #6d4c41;
+    width:420px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    bottom:100px;
+    left:-68px;
+    top:-50px;
+    transition: background-color 0.5s ease;
+}
+
+
+button:hover {
+    background-color: #d2b48c;
+    color:#4e342e;
+}
+
+
+p{
+    position: relative;
+    right: 40px;
+    bottom: 10px;
+    font-weight: bold;
+}
+
+
+

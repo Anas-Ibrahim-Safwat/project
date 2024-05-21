@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="view list of available books" />
+    <title>view list of available books</title>
+    <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
+    <link rel="stylesheet" href="{%static 'css/add.css'%}">
+    <script src="{%static 'js/add.js'%}""></script>
+    <script src="{%static 'js/user-nav.js'%}"></script>
+    <style>
+        body{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
+    height: 100vh;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+}
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Book Store</a>
+    
+        <nav class="navbar">
+            <a href="../">Home</a>
+            <a href="../view">Available books</a>
+            <a href="../borrow">Borrowed Books</a>
+            <a href="../browse">Browse Books</a>
+        </nav>
+    
+    
+        <div class="search-container">
+            <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            <ul class="search-list" id="searchList"></ul>
+        </div>
+    
+    </header>
+    <br>
+    <br>
+    <div class="hs">
+        <label for="_book">Available Books</label>
+        <table id="_book">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Author</td>
+                    <td>Category</td>
+                    <td>description</td>
+                    <td>Book Availability</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>

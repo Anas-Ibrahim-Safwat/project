@@ -1,0 +1,38 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="{% static 'css/homeWithNav.css'%}" />
+    <link rel ="stylesheet" href = "{%static 'css/admin-nav.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg' %}");
+        height: 100vh;
+        width:100%;
+        background-position: center;
+        background-size: cover;
+    }
+    </style>
+</head>
+<body>
+    <header class = "header">
+        <a href="#" class="logo">Book Store</a>
+        <nav class ="navbar">
+            <a href="">Home</a>
+            <a href="add">Add new book</a>
+            <a href="view">Available books</a>
+            <a href="edit">Edit</a>
+            <a href="delete">Delete</a>
+        </nav>
+    </header>
+<div class="content">
+    <h1>Welcome to Our Book Store</h1>
+    <p>Web application that allows customers to buy books online. Customers can search for a book by title or author using a web browser,<br> add it to their shopping cart, and then purchase it using a debit or credit card transaction.</p>
+    <a href="sign_up.html" target="_blank">
+        <button>Join Us</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border:none;
+    border-radius: 30px;
+}
+
+
+form {
+    background-color: rgba(255, 240, 228, 0.45);
+    padding: 80px 100px 10px;
+    width: 500px;
+    position: relative;
+    top:20px;
+    box-shadow: 0 0 0 3px white;
+
+}
+
+
+form:hover{
+    box-shadow: 0 0 6px 5px white;
+}
+
+
+h2 {
+    position: relative;
+    bottom: 20px;
+    left:57px;
+    text-align: center;
+    color: #4e342e;
+    margin-bottom: 40px;
+    padding: 5px;
+    width:65%;
+    border-radius: 60px;
+    font-size: 35px;
+    /* background-image: linear-gradient(to right, #d2b48c, #f0eae1,#d2b48c); */
+}
+
+
+input[type="email"],
+input[type="password"] {
+    position: relative;
+    bottom: 40px;
+    top:-5px;
+    right: 20%;
+    /* width: calc(100% - 24px); */
+    width:420px;
+    padding: 15px;
+    margin-bottom: 40px;
+    border: 3px solid #b08d6c;
+    border-radius: 50px;
+    background-color: #ede0cf;
+    font-size: 16px;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+
+input[type="email"]:focus,
+input[type="email"]:hover,
+input[type="password"]:focus,
+input[type="password"]:hover {
+    outline: none;
+    border-color: #4e342e;
+}
+
+input[type="email"]::placeholder,input[type="password"]::placeholder{
+    color:#4e342e
+}
+
+
+a {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+}
+
+a:hover {
+    color: #4e342e;
+    font-weight: bold;
+    text-decoration: underline;
+    filter:drop-shadow(1px 1px 3px #4e342e)
+}
+
+p{
+    color:black;
+    position:relative;
+    bottom:40px;
+    left:40px;
+
+}
+
+i {
+    color:#6d4c41;
+    position: absolute;
+    transform: translateX(325px) translateY(-80px);
+}
+i:hover{
+    filter:drop-shadow(1px 1px  3px #6d4c41)
+}
+
+button {
+    padding:15px; 
+    margin-top: 25px;
+    background-color: #6d4c41;
+    width:420px;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    bottom:100px;
+    left:-58px;
+    top:-60px;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #d2b48c;
+    color:#4e342e;
+}
+#eml{
+    text-align: left;
+    position: absolute;
+    bottom:250px;
+    left:60px;
+    font-weight: bold;
+}
+.error #pd{
+    text-align: left;
+    position: absolute;
+    bottom:160px;
+    left:60px;
+    font-weight: bold;
+}
+
+

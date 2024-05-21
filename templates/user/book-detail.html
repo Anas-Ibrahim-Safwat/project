@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{%static 'js/user-nav.js'%}"></script>
+    <script src="{%static 'js/add.js'%}""></script>
+    <script src="{%static 'js/detail.js'%}"></script>
+    <script src="{%static 'js/borrow.js'%}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/selectUserBook.css'%}">
+    <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
+    <style>
+        body{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
+    height: 100vh;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+}
+    </style>
+</head>
+<header class="header">
+    <a href="#" class="logo">Book Store</a>
+
+    <nav class="navbar">
+        <a href="../">Home</a>
+        <a href="../view">Available books</a>
+        <a href="../borrow">Borrowed Books</a>
+        <a href="../browse">Browse Books</a>
+    </nav>
+
+
+    <div class="search-container">
+        <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
+        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+        <ul class="search-list" id="searchList"></ul>
+    </div>
+
+</header>
+<body>
+<form id="book-details" >
+    <div>
+        <label> Book Details </label>
+        <br>
+        <br>
+        <label for="input-file" id="drop-area">
+            <input type="file" id="input-file" accept="image/*" disabled hidden>
+            <div id="img-view"></div>
+        </label>
+        <br>
+        <br>
+        <label for="bid">Book ID</label>
+        <input type="text" id="bid" disabled>
+        <br>
+        <br>
+        <label for="bn">Book Name</label>
+        <input type="text" id="bn" disabled>
+        <br>
+        <br>
+        <label for="ba">Book Author</label>
+        <input type="text" id="ba" disabled>
+        <br>
+        <br>
+        <label for="bc">Book Category</label>
+        <input type="text" name="book category" id="bc" disabled>
+        <!--   options content from javascript-->
+        <br>
+        <br>
+        <label for="bd">Book Description</label>
+        <textarea name="book_description" id="bd" disabled></textarea>
+        <br>
+        <br>
+        <label for="bav">Book Availability</label>
+        <input name="Book Availability" id="bav" disabled>
+        <!--             options content from javascript-->
+
+        <br>
+        <br>
+        <button id="borrowButton" >Borrow</button>
+    </div>
+</form>
+</body>
+</html>

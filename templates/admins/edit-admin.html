@@ -1,0 +1,103 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Page</title>
+    <meta charset="UTF-8">
+    <meta name =  "description" content = "Edit Page"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel ="stylesheet" href = "{%static 'css/admin-nav.css'%}"">
+    <link rel="stylesheet" href="{%static 'css/add.css'%}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{%static 'js/add.js'%}""></script>
+    <style>
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
+            height: 100vh;
+            width:100%;
+            background-position: center;
+            background-size: cover;
+            align-items: center;
+            height: 100vh;
+}
+    </style>
+</head>
+
+<body>
+
+    <header class = "header">
+        <a href="#" class="logo">Book Store</a>
+        <nav class ="navbar">
+            <a href="..">Home</a>
+            <a href="../add">Add new book</a>
+            <a href="../view">Available books</a>
+            <a href="../edit">Edit</a>
+            <a href="../delete">Delete</a>
+        </nav>
+    </header>
+
+<br>
+<form id ="should_hide">
+    <div >
+        <label for="selecting">Select The Book You Want to Edit</label>
+        <br>
+        <br>
+
+        <select id="selecting" required >
+            <option value="" disabled selected>Available Books</option>
+        </select>
+        <br>
+        <br>
+        <button type="button" id="d_select" onclick="go_to_edit()">
+            Done</button>
+    </div>
+    <br>
+</form>
+<form id="should_show" style="display: none">
+    <div>
+        <label>  Book Details  </label>
+        <br>
+        <br>
+        <label for="bid">Book ID</label>
+        <input type="text" id="bid" disabled required min="1" >
+        <br>
+        <br>
+        <label for="bn">Book Name</label>
+        <input type="text" id="bn"  required minlength="3" >
+        <br>
+        <br>
+        <label for="ba">Book Author</label>
+        <input type="text" id="ba"  required minlength="3" >
+        <br>
+        <br>
+        <label for="bc">Book Category</label>
+        <select name="book category" id="bc" required onclick="">
+            <!--   options content from javascript-->
+        </select>
+        <br>
+        <br>
+        <label for="bd">Book Description</label>
+        <textarea name="book_description" id="bd" required></textarea>
+        <br>
+        <br>
+        <label for="bav">Book Availability</label>
+        <select name="Book Availability" id="bav" required >
+            <!--             options content from javascript-->
+        </select>
+        <br>
+        <br>
+        <label for="input-file" id="drop-area">
+            <input type="file" id="input-file" accept="image/*" onchange="upload_image()"   hidden>
+            <div id="img-view">
+<!--                <p> Click here <br>to upload image</p>-->
+            </div>
+        </label>
+        <br>
+        <br>
+        <button id="submit_edited" onclick="save_edit()" >Done</button>
+    </div>
+</form>
+
+
+</body>
+</html>

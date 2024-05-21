@@ -1,0 +1,148 @@
+
+html {
+    scroll-behavior: smooth;
+}
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border:none;
+    text-align: center;
+
+}
+/*
+for view list of available book admin side
+*/
+#_book thead{
+    font-weight: bold;
+}
+label{
+    background-color: rgba(255, 240, 228, 0.5);
+    border-radius: 30px ;
+    color: #4e342e;
+    font-weight: bold;
+    font-size: 27px;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    /*display: block;*/
+}
+form:hover, #_book:hover ,label:hover ,button:hover{
+    box-shadow: 0 0 5px 5px rgba(78, 52, 46, 1);
+    border-radius: 30px;
+}
+
+#_book ,th,td{
+    background-color: rgba(255, 240, 228, 0.5);
+    border-radius: 30px ;
+    padding:8px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+    color: #4e342e;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+}
+
+/*
+for add new book page
+*/
+button{
+    background-color: #4e342e;
+    color:#fff;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    margin-left: 300px;
+}
+button:hover{
+    background-color:#ede0cf ;
+    color: #4e342e;
+    border:1px solid #4e342e;
+}
+#should_hide,#should_show{
+    margin: auto;
+    padding: 50px;
+    display: block;
+}
+form{
+    background-color: rgba(255, 240, 228, 0.5);
+    padding: 50px;
+    width: 50%;
+    height: auto;
+    border:none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    color: #4e342e;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/**/
+form div input,#bd,select{
+    background-color: #ede0cf;
+    color:#4e342e;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    border-color: #ede0cf;
+    font-size: 20px;
+    outline: none;
+}
+form div input:hover,#bd:hover,select:hover{
+    border:1px solid #4e342e;
+
+}
+
+#drop-area,#drop-area:hover{
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+    width:500px ;
+    padding: 10px;
+    height: 300px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+#img-view{
+    text-align: center;
+    justify-items: center;
+    width: 350px ;
+    padding: 10px;
+    height:450px;
+    border-radius: 20px;
+    border: 2px dashed #4e342e;
+    background-size: cover;
+    background-position:center ;
+    background-color: #ede0cf;
+    margin-right: 20px;
+}
+
+img{
+    text-align: center;
+    justify-items: center;
+    width: 350px ;
+    padding: 2px;
+    height: 450px;
+
+    border-radius: 20px;
+    background-size: cover;
+    background-position:center ;
+    background-color: #ede0cf;
+}

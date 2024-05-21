@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>List of borrow book</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
+    <link rel="stylesheet" href="{%static 'css/borrow-book-by-user.css'%}">
+    <script src="{%static 'js/borrow-book-by-user.js'%}"></script>
+    <style>
+        body{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
+    height: 100vh;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+}
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Book Store</a>
+    
+        <nav class="navbar">
+            <a href="../">Home</a>
+            <a href="../view">Available books</a>
+            <a href="../borrow">Borrowed Books</a>
+            <a href="../browse">Browse Books</a>
+        </nav>
+    
+    
+        <div class="search-container">
+            <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+            <ul class="search-list" id="searchList"></ul>
+        </div>
+    
+    </header>
+    <br>
+    <div>
+        <caption><b>Name of books that borrowed by this user</b></caption>
+        <br>
+        <table id="Books">
+            <thead>
+                <tr>
+                    <th>number</th>
+                    <th>Book's name</th>
+                </tr>
+            </thead>
+            <tbody id="borrowedBooksTable">
+
+            </tbody>
+            <tfoot>
+                <tr>
+
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
