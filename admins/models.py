@@ -10,4 +10,4 @@ class Book(models.Model):
     author = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
     image = models.ImageField(upload_to='photos')
-    # availability = models.BooleanField(default=True)
+    availability = models.BooleanField(default=True)
