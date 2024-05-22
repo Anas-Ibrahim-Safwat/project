@@ -40,15 +40,15 @@
         <h3>Enter the book details</h3>
         <br>
         <label for="bid">Book ID</label>
-        <input type="text" id="bid"  required min="1" >
+        <input type="text" id="bid" name="bid" required min="1" >
         <br>
         <br>
         <label for="bn">Book Name</label>
-        <input type="text" id="bn"  required minlength="3" >
+        <input type="text" id="bn" name="name" required minlength="3" >
         <br>
         <br>
         <label for="ba">Book Author</label>
-        <input type="text" id="ba"  required minlength="3" >
+        <input type="text" id="ba" name="author" required minlength="3" >
         <br>
         <br>
         <label for="bc">Book Category</label>
@@ -65,7 +65,7 @@
         <br>
         <br>
         <label for="input-file" id="drop-area">
-            <input type="file" id="input-file" accept="image/*" onchange="upload_image()"   hidden>
+            <input type="file" id="input-file" name="image" accept="image/*" onchange="upload_image()"   hidden>
             <div id="img-view">
                 <p> Click here <br>to upload image</p>
             </div>

@@ -9,11 +9,11 @@ def Home(request):
 
 def add_new_book(request):
     if request.method == "POST":
-        b_id = request.POST.get("id")
+        b_id = request.POST.get("bid")
         name = request.POST.get("name")
-        description = request.POST.get("description")
+        description = request.POST.get("book_description")
         author = request.POST.get("author")
-        category = request.POST.get("category")
+        category = request.POST.get("book category")
         image = request.POST.get("image")
         data = Book(name=name, b_id=b_id, description=description, author=author, category=category, image=image)
         data.save()
