@@ -9,5 +9,8 @@ class Book(models.Model):
     description = models.TextField(max_length=500)
     author = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='photos')
+    image = models.ImageField(upload_to='photos/')
     availability = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name

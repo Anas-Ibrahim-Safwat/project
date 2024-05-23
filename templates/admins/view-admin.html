@@ -1,4 +1,5 @@
 {%load static%}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,6 @@
             background-position: center;
             background-size: cover;
             align-items: center;
-            height: 100vh;
 }
     </style>
 </head>
@@ -51,12 +51,24 @@
                     <td>Image</td>
                 </tr>
             </thead>
+        <tbody>
+        {% for datum in data %}
+              <tr>
+              <td>{{ datum.b_id }}</td>
+              <td>{{ datum.name }}</td>
+              <td>{{ datum.author }}</td>
+              <td>{{ datum.category }}</td>
+              <td>{{ datum.description }}</td>
+              <td>{{ datum.availability }}</td>
+              <td> <img src="{{ datum.image.url }}" alt="" id="image" ></td>
+              </tr>
+        {% endfor %}
+        </tbody>
         </table>
     </div>
 </body>
-
 </html>
-
+{% endblock %}
 <!--        <td>The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change</td>-->
 <!--        <td>Stephen R. Covey</td>-->
 <!--        <td>Self Help</td>-->

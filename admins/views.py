@@ -3,30 +3,33 @@ from . models import Book
 # Create your views here.
 
 
-def Home(request):
+def home(request):
     return render(request, 'admins/home-admin.html')
 
 
 def add_new_book(request):
     if request.method == "POST":
-        b_id = request.POST.get("bid")
-        name = request.POST.get("name")
-        description = request.POST.get("book_description")
-        author = request.POST.get("author")
-        category = request.POST.get("book category")
-        image = request.POST.get("image")
-        data = Book(name=name, b_id=b_id, description=description, author=author, category=category, image=image)
-        data.save()
+        book = Book()
+        book.b_id = request.POST.get("bid")
+        book.name = request.POST.get("name")
+        book.description = request.POST.get("book_description")
+        book.author = request.POST.get("author")
+        book.category = request.POST.get("book category")
+        if len(request.FILES) != 0:
+            print("elhamdllah")
+            book.image = request.FILES['image']
+        book.save()
     return render(request, 'admins/add-admin.html')
 
 
-def Delete(request):
+def delete(request):
     return render(request, 'admins/delete-admin.html')
 
 
-def Edit(request):
+def edit(request):
     return render(request, 'admins/edit-admin.html')
 
 
-def View(request):
-    return render(request, 'admins/view-admin.html')
+def view(request):
+
+    return render(request, 'admins/view-admin.html', {'data': Book.objects.all()})
