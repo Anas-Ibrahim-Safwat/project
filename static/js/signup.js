@@ -1,3 +1,4 @@
+alert("yesssss")
 function savedata(){
     data={
         Password :document.getElementById('passd1').value,
@@ -10,15 +11,15 @@ function savedata(){
         var mes= document.getElementById('p');
         var m = document.getElementById('m');
 
-        if(data.username=="")
-        {
-            mess.innerHTML = "Username cannot be empty!";
-            return false;
-        }
-        else
-        {
-            mess.innerHTML = "";
-        }
+        // if(data.username=="")
+        // {
+        //     mess.innerHTML = "Username cannot be empty!";
+        //     return false;
+        // }
+        // else
+        // {
+        //     mess.innerHTML = "";
+        // }
         if(data.Password=="")
         {
             mes.innerHTML = "Passwword cannot be empty!";
