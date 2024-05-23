@@ -1,6 +1,3 @@
-from django.shortcuts import render
-from admins.models import Book 
-
 from django.shortcuts import render,get_object_or_404
 from admins.models import Book
 # Create your views here.
