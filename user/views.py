@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 from django.shortcuts import render
 from admins.models import Book 
 
-=======
 from django.shortcuts import render,get_object_or_404
 from admins.models import Book
->>>>>>> b7356270e5c49b727c2b8cc9b6e9d8755a5e87bb
 # Create your views here.
 
 
