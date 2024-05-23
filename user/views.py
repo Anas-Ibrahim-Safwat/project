@@ -1,6 +1,16 @@
 from django.shortcuts import render,get_object_or_404
 from admins.models import Book
 # Create your views here.
+
+
+def Search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        books = Book.objects.filter(name__contains = searched)
+        return render(request, 'user/search-book.html', {'searched':searched , 'books':books})
+    else:
+        return render(request, 'user/search-book.html')
+
 def View(request):
     return render(request, 'user/view-user.html')
 
