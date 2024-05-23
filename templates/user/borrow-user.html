@@ -50,7 +50,12 @@
                 </tr>
             </thead>
             <tbody id="borrowedBooksTable">
-
+                {% for borrow in borrows %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ borrow.book.title }}</td>
+                </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
