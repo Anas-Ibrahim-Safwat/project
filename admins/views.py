@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render
 from . models import Book
 # Create your views here.
@@ -26,8 +28,19 @@ def delete(request):
     return render(request, 'admins/delete-admin.html')
 
 
-def go_edit(request):
-    return
+def go_edit(request, pk):
+    book = Book.objects.get(id=pk)
+    if request.method == "Post":
+        if len(request.FILES) != 0:
+            if len(book.image) > 0:
+                os.remove(book.image.path)
+            book.image = request.FILES['image']
+            book.name = request.POST.get("name")
+            book.description = request.POST.get("book_description")
+            book.author = request.POST.get("author")
+            book.category = request.POST.get("book category")
+            book.save()
+    return render(request, 'admins/go-edit-admin.html')
 
 
 def edit(request):
