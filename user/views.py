@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render,get_object_or_404
+from admins.models import Book
 # Create your views here.
 def View(request):
     return render(request, 'user/view-user.html')
@@ -8,10 +8,13 @@ def Borrow(request):
     return render(request, 'user/borrow-user.html')
 
 def Browse(request):
-    return render(request, 'user/browse-user.html')
+    return render(request, 'user/browse-user.html',{'data':Book.objects.all()})
+    #return render(request, 'user/browse-user.html')
 
 def Home(request):
     return render(request, 'user/home-user.html')
 
-def Detail(request):
-    return render(request, 'user/book-detail.html')
+def Detail(request,pk):
+     book = get_object_or_404(Book, b_id=pk)
+     return render(request, 'user/book-detail.html', {'datum': book})
+    #return render(request, 'user/book-detail.html')
