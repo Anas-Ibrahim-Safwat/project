@@ -1,6 +1,6 @@
 import os
-
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render,redirect
 from . models import Book
 # Create your views here.
 
@@ -24,8 +24,13 @@ def add_new_book(request):
     return render(request, 'admins/add-admin.html')
 
 
+# def get_book(request, book_id):
+#     book = get_object_or_404(Book, id=book_id)
+#     return render(request, 'delete-admin.html', {'book': book})
+
+
 def delete(request):
-    return render(request, 'admins/delete-admin.html')
+    return render(request, 'admins/delete-admin.html',{'data': Book.objects.all()})
 
 
 def go_edit(request, pk):
