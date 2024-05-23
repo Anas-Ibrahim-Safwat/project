@@ -16,7 +16,7 @@ def add_new_book(request):
         book.author = request.POST.get("author")
         book.category = request.POST.get("book category")
         if len(request.FILES) != 0:
-            print("elhamdllah")
+            print("elhamd llah")
             book.image = request.FILES['image']
         book.save()
     return render(request, 'admins/add-admin.html')
@@ -26,8 +26,13 @@ def delete(request):
     return render(request, 'admins/delete-admin.html')
 
 
+def go_edit(request):
+    return
+
+
 def edit(request):
-    return render(request, 'admins/edit-admin.html')
+
+    return render(request, 'admins/edit-admin.html', {'data': Book.objects.all()})
 
 
 def view(request):

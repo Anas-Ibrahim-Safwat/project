@@ -1,4 +1,5 @@
 {%load static%}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,67 +38,23 @@
     </header>
 
 <br>
-<form id ="should_hide">
+<form id ="should_hide" >
     <div >
         <label for="selecting">Select The Book You Want to Edit</label>
         <br>
         <br>
-
         <select id="selecting" required >
             <option value="" disabled selected>Available Books</option>
+            {% for x in data %}
+                <option value="{{ x.b_id }}">{{ x.name }}</option>
+            {% endfor %}
         </select>
         <br>
         <br>
-        <button type="button" id="d_select" onclick="go_to_edit()">
-            Done</button>
+        <button type="button" id="d_select" onclick="{% url '' %}">Done</button>
     </div>
     <br>
 </form>
-<form id="should_show" style="display: none">
-    <div>
-        <label>  Book Details  </label>
-        <br>
-        <br>
-        <label for="bid">Book ID</label>
-        <input type="text" id="bid" disabled required min="1" >
-        <br>
-        <br>
-        <label for="bn">Book Name</label>
-        <input type="text" id="bn"  required minlength="3" >
-        <br>
-        <br>
-        <label for="ba">Book Author</label>
-        <input type="text" id="ba"  required minlength="3" >
-        <br>
-        <br>
-        <label for="bc">Book Category</label>
-        <select name="book category" id="bc" required onclick="">
-            <!--   options content from javascript-->
-        </select>
-        <br>
-        <br>
-        <label for="bd">Book Description</label>
-        <textarea name="book_description" id="bd" required></textarea>
-        <br>
-        <br>
-        <label for="bav">Book Availability</label>
-        <select name="Book Availability" id="bav" required >
-            <!--             options content from javascript-->
-        </select>
-        <br>
-        <br>
-        <label for="input-file" id="drop-area">
-            <input type="file" id="input-file" accept="image/*" onchange="upload_image()"   hidden>
-            <div id="img-view">
-<!--                <p> Click here <br>to upload image</p>-->
-            </div>
-        </label>
-        <br>
-        <br>
-        <button id="submit_edited" onclick="save_edit()" >Done</button>
-    </div>
-</form>
-
-
 </body>
 </html>
+{% endblock %}
