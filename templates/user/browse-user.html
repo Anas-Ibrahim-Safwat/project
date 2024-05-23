@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/select-book.css'%}">
+    <link rel="stylesheet" href="{%static 'css/selectUserbook.css'%}">
     <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
     <title>Book Selection</title>
     <script src="{%static 'js/select-book.js'%}"></script>
     <script src="{%static 'js/user-nav.js'%}"></script>
-    <script src="{%static 'js/add.js'%}""></script>
+    <script src="{%static 'js/add.js'%}"></script>
     <script src="{%static 'js/borrow.js'%}"></script>
     <style>
         body{
@@ -36,16 +36,24 @@
         </nav>
     
     
-        <div class="search-container">
+        <!-- <div class="search-container">
             <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
             <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
             <ul class="search-list" id="searchList"></ul>
-        </div>
+        </div> -->
     
     </header>
 
-    <div class="books-container" id="books-container"></div>
-
+    <div class="books-container" id="books-container">
+    {% for datum in data %}
+       <div class="book">
+        <img src="{{datum.image.url}}"alt="" >
+        <p>{{ datum.name }}</p>
+        <a href="{% url 'detail' datum.b_id %}"><button class="Detail-button" >Book Details</button></a>
+       </div>
+       {% endfor %}
+    </div>
+    
     
 </body>
 

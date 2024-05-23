@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="{%static 'js/user-nav.js'%}"></script>
-    <script src="{%static 'js/add.js'%}""></script>
+    <script src="{%static 'js/add.js'%}"></script>
     <script src="{%static 'js/detail.js'%}"></script>
     <script src="{%static 'js/borrow.js'%}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,54 +32,45 @@
     </nav>
 
 
-    <div class="search-container">
+    <!-- <div class="search-container">
         <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
         <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
         <ul class="search-list" id="searchList"></ul>
-    </div>
+    </div> -->
 
 </header>
 <body>
-<form id="book-details" >
-    <div>
-        <label> Book Details </label>
-        <br>
-        <br>
-        <label for="input-file" id="drop-area">
-            <input type="file" id="input-file" accept="image/*" disabled hidden>
-            <div id="img-view"></div>
-        </label>
-        <br>
-        <br>
-        <label for="bid">Book ID</label>
-        <input type="text" id="bid" disabled>
-        <br>
-        <br>
-        <label for="bn">Book Name</label>
-        <input type="text" id="bn" disabled>
-        <br>
-        <br>
-        <label for="ba">Book Author</label>
-        <input type="text" id="ba" disabled>
-        <br>
-        <br>
-        <label for="bc">Book Category</label>
-        <input type="text" name="book category" id="bc" disabled>
-        <!--   options content from javascript-->
-        <br>
-        <br>
-        <label for="bd">Book Description</label>
-        <textarea name="book_description" id="bd" disabled></textarea>
-        <br>
-        <br>
-        <label for="bav">Book Availability</label>
-        <input name="Book Availability" id="bav" disabled>
-        <!--             options content from javascript-->
-
-        <br>
-        <br>
-        <button id="borrowButton" >Borrow</button>
-    </div>
-</form>
+    <form id="book-details">
+        <div>
+            <label>Book Details</label>
+            <br><br>
+            <label for="input-file" id="drop-area">
+                <input type="file" id="input-file" accept="image/*" disabled hidden>
+                <div id="img-view">
+                    <img src="{{ datum.image.url }}" alt="Book Image">
+                </div>
+            </label>
+            <br><br>
+            <label for="bid">Book ID</label>
+            <input type="text" id="bid" value="{{ datum.b_id }}" disabled>
+            <br><br>
+            <label for="bn">Book Name</label>
+            <input type="text" id="bn" value="{{ datum.name }}" disabled>
+            <br><br>
+            <label for="ba">Book Author</label>
+            <input type="text" id="ba" value="{{ datum.author }}" disabled>
+            <br><br>
+            <label for="bc">Book Category</label>
+            <input type="text" id="bc" value="{{ datum.category }}" disabled>
+            <br><br>
+            <label for="bd">Book Description</label>
+            <textarea id="bd" disabled>{{ datum.description }}</textarea>
+            <br><br>
+            <label for="bav">Book Availability</label>
+            <input id="bav" value="{{ datum.availability }}" disabled>
+            <br><br>
+            <button id="borrowButton">Borrow</button>
+        </div>
+    </form>
 </body>
 </html>

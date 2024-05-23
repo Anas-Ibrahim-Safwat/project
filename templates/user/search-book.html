@@ -1,0 +1,102 @@
+{%load static%}
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
+    <script src="{%static 'js/user-nav.js'%}"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>LOGIN</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
+            height: 100vh;
+            width:100%;
+            background-position: center;
+            background-size: cover;
+}
+.search-results-container {
+    width: 100%;
+    height: 90vh;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-item {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.book-item h1 a {
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.book-item p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Book Store</a>
+
+        <nav class="navbar">
+            <a href="../">Home</a>
+            <a href="../view">Available books</a>
+            <a href="../borrow">Borrowed Books</a>
+            <a href="../browse">Browse Books</a>
+        </nav>
+
+        <form method="post" action="{%url 'search'%}">
+            {%csrf_token%}
+            <div class="search-container">
+                <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput" name="searched">
+                <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                <ul class="search-list" id="searchList"></ul>
+            </div>
+        </form>
+    </header>
+
+    <div class="search-results-container">
+        {% if searched %}
+            <div class="search-results">
+                {% for book in books %}
+                    <div class="book-item">
+                        <h1><a href="{% url 'detail' book.pk%}">{{ book }}</a></h1>
+                        <p>Author: {{ book.author }}</p>
+                        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>

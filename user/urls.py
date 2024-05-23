@@ -5,6 +5,7 @@ urlpatterns = [
     path('' , views.Home, name = 'home'),
     path('borrow/' , views.Borrow, name = 'borrow'),
     path('browse/' , views.Browse, name = 'browse'),
-    path('detail/' , views.Detail, name = 'detail'),
-    path('view/', views.View , name= 'view' )
+    path('detail/<str:pk>' , views.Detail, name = 'detail'),
+    path('view/', views.View , name= 'view' ),
+    path('search/', views.Search , name= 'search' )
 ]
