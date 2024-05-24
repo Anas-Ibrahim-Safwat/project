@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from . models import Book
 from django.contrib import messages
+
 # Create your views here.
 
 
@@ -30,12 +31,17 @@ def add_new_book(request):
     return render(request, 'admins/add-admin.html')
 
 
-# def get_book(request, book_id):
-#     book = get_object_or_404(Book, id=book_id)
-#     return render(request, 'delete-admin.html', {'book': book})
-
 
 def delete(request):
+    if request.method == 'POST':
+        book_id = request.POST.get('delete')
+        if book_id:
+            book = get_object_or_404(Book, b_id=book_id)
+            book.delete()
+            messages.success(request, 'Book has been deleted successfully')
+            return redirect('delete')
+        else:
+            messages.error(request, 'No book selected for deletion')
     return render(request, 'admins/delete-admin.html', {'data': Book.objects.all()})
 
 

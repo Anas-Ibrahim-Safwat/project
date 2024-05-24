@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,23 +33,41 @@
         </nav>
     </header>
     <br>
-    <form>
-        <div>
-            <b>All books in library</b>
-        </div>
-        <br>
-        <br>
-        <div>
-            <label for="delete">Select to delete:</label>
-            <select id="delete">
-                <option disabled selected value="">books to delete</option>
+</body>
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <main>
+        <form method="POST" action="{% url 'delete' %}">
+            <div>
+                <b>All books in library</b>
+            </div>
+            <br>
+            <br>
+            {% csrf_token %}
+            <label for="delete">Select book to delete:</label>
+            <select name="delete" id="delete">
+                <option value="" disabled selected>Choose a book to delete</option>
                 {% for book in data %}
-                <option>{{ book.name }}</option>
+                <option value="{{ book.b_id }}">{{ book.name }}</option>
                 {% endfor %}
             </select>
-        </div>
-        <br>
-        <br>
-        <input type="submit" value="Delete">
-    </form>
+            <br>
+            <br>
+            <button type="submit">Delete</button>
+        </form>
+    </main>
 </body>
+
+</html>
