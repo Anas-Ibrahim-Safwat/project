@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Users
-from django.contrib import messages
 # Create your views here.
 
 
