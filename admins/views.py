@@ -1,6 +1,6 @@
 import os
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from . models import Book
 # Create your views here.
 
@@ -34,23 +34,20 @@ def delete(request):
 
 
 def go_edit(request, pk):
-    book = Book.objects.get(id=pk)
-    if request.method == "Post":
+    book = Book.objects.get(b_id=pk)
+    if request.method == "POST":
         if len(request.FILES) != 0:
             if len(book.image) > 0:
                 os.remove(book.image.path)
             book.image = request.FILES['image']
-            book.name = request.POST.get("name")
-            book.description = request.POST.get("book_description")
-            book.author = request.POST.get("author")
-            book.category = request.POST.get("book category")
-            book.save()
-    return render(request, 'admins/go-edit-admin.html')
-
-
-def edit(request):
-
-    return render(request, 'admins/edit-admin.html', {'data': Book.objects.all()})
+        book.name = request.POST.get("name")
+        book.description = request.POST.get("book_description")
+        book.author = request.POST.get("author")
+        book.category = request.POST.get("book category")
+        book.availability = request.POST.get("Book Availability")
+        book.save()
+        return redirect('/admins')
+    return render(request, 'admins/go-edit-admin.html', {'data': book})
 
 
 def view(request):

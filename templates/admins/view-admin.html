@@ -30,7 +30,6 @@
             <a href="..">Home</a>
             <a href="../add">Add new book</a>
             <a href="../view">Available books</a>
-            <a href="../edit">Edit</a>
             <a href="../delete">Delete</a>
         </nav>
     </header>
@@ -61,6 +60,7 @@
               <td>{{ datum.description }}</td>
               <td>{{ datum.availability }}</td>
               <td> <img src="{{ datum.image.url }}" alt="" id="image" ></td>
+              <td> <a href="{% url 'editing' datum.b_id %}"><button type="button" id="d_select">Edit</button></a></td>
               </tr>
         {% endfor %}
         </tbody>

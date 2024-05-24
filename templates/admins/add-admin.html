@@ -30,7 +30,6 @@
         <a href="..">Home</a>
         <a href="../add">Add new book</a>
         <a href="../view">Available books</a>
-        <a href="../edit">Edit</a>
         <a href="../delete">Delete</a>
     </nav>
 </header>
@@ -52,9 +51,9 @@
         <br>
         <br>
         <label for="bc">Book Category</label>
-        <select name="book category" id="bc" required>
+        <select name="book category" id="bc" required onfocus="categories()">
             <option disabled selected value="">Categories</option>
-            <!--             options content from javascript-->
+
         </select>
         <br>
         <br>
@@ -66,7 +65,7 @@
         <br>
         <label for="input-file" id="drop-area">
             <input type="file" id="input-file" name="image" accept="image/*" onchange="upload_image()" hidden>
-            <div id="img-view">
+            <div id="img-view" >
                 <p> Click here <br>to upload image</p>
             </div>
         </label>
