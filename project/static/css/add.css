@@ -63,7 +63,6 @@ button{
     border: none;
     font-size: 20px;
     outline: none;
-    margin-left: 300px;
 }
 button:hover{
     background-color:#ede0cf ;
@@ -137,10 +136,9 @@ form div input:hover,#bd:hover,select:hover{
 img{
     text-align: center;
     justify-items: center;
-    width: 350px ;
+    width: 250px;
+    height: 152px;
     padding: 2px;
-    height: 450px;
-
     border-radius: 20px;
     background-size: cover;
     background-position:center ;

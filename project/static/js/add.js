@@ -1,5 +1,6 @@
+
 // for select category options in add new book page  and select to edit page
-document.addEventListener('DOMContentLoaded', function () {
+function categories () {
     let categories = ["Adventure", "Romance", "Self Help", "Fantasia", "Horror", "Historical Fiction"];
     let element = document.getElementById("bc");
     for (let i = 0; i < categories.length; i++) {
@@ -8,22 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         option_ele.textContent = categories[i];
         element.appendChild(option_ele);
     }
-});
-
-// for select availability options select to edit page
-document.addEventListener('DOMContentLoaded', function () {
-    let categories = ["Available", "Borrowed"];
-    let element = document.getElementById("bav");
-    for (let i = 0; i < categories.length; i++) {
-        let option_ele = document.createElement("option");
-        option_ele.value = categories[i];
-        option_ele.textContent = categories[i];
-        element.appendChild(option_ele);
-    }
-});
-
-
-// for select to edit page in admin side
+}
 
 
 function upload_image() {

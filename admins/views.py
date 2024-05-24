@@ -1,7 +1,8 @@
 import os
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from . models import Book
+from django.contrib import messages
 # Create your views here.
 
 
@@ -13,14 +14,19 @@ def add_new_book(request):
     if request.method == "POST":
         book = Book()
         book.b_id = request.POST.get("bid")
+        nee = book.b_id
         book.name = request.POST.get("name")
         book.description = request.POST.get("book_description")
         book.author = request.POST.get("author")
         book.category = request.POST.get("book category")
         if len(request.FILES) != 0:
-            print("elhamd llah")
             book.image = request.FILES['image']
-        book.save()
+        if Book.objects.filter(b_id=nee).exists():
+            messages.warning(request, 'ID is already exists')
+            return redirect('add')
+        else:
+            book.save()
+            messages.success(request, 'Book has been added successfully')
     return render(request, 'admins/add-admin.html')
 
 
@@ -30,27 +36,24 @@ def add_new_book(request):
 
 
 def delete(request):
-    return render(request, 'admins/delete-admin.html',{'data': Book.objects.all()})
+    return render(request, 'admins/delete-admin.html', {'data': Book.objects.all()})
 
 
 def go_edit(request, pk):
-    book = Book.objects.get(id=pk)
-    if request.method == "Post":
+    book = Book.objects.get(b_id=pk)
+    if request.method == "POST":
         if len(request.FILES) != 0:
             if len(book.image) > 0:
                 os.remove(book.image.path)
             book.image = request.FILES['image']
-            book.name = request.POST.get("name")
-            book.description = request.POST.get("book_description")
-            book.author = request.POST.get("author")
-            book.category = request.POST.get("book category")
-            book.save()
-    return render(request, 'admins/go-edit-admin.html')
-
-
-def edit(request):
-
-    return render(request, 'admins/edit-admin.html', {'data': Book.objects.all()})
+        book.name = request.POST.get("name")
+        book.description = request.POST.get("book_description")
+        book.author = request.POST.get("author")
+        book.category = request.POST.get("book category")
+        book.availability = request.POST.get("Book Availability")
+        book.save()
+        return redirect('admins/')
+    return render(request, 'admins/go-edit-admin.html', {'data': book})
 
 
 def view(request):

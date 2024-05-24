@@ -1,7 +1,6 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>List of borrow book</title>
     <meta charset="UTF-8">
@@ -36,7 +35,6 @@
             <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
             <ul class="search-list" id="searchList"></ul>
         </div> -->
-    
     </header>
     <br>
     <div>
@@ -50,7 +48,12 @@
                 </tr>
             </thead>
             <tbody id="borrowedBooksTable">
-
+                {% for borrow in borrows %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ borrow.book.title }}</td>
+                </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
