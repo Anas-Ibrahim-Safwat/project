@@ -36,7 +36,7 @@ def add_new_book(request):
 
 
 def delete(request):
-    return render(request, 'admins/delete-admin.html',{'data': Book.objects.all()})
+    return render(request, 'admins/delete-admin.html', {'data': Book.objects.all()})
 
 
 def go_edit(request, pk):

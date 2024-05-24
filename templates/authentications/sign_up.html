@@ -1,11 +1,11 @@
 {%load static%}
 <!DOCTYPE html>
-<html>
-    <head> 
+<html lang="en">
+    <head>
         <title>Sign_Up</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/sign_up.css'%}" />
-        <script src="{% static 'js/signup.js'%}" async></script>
+{#        <script src="{% static 'js/signup.js'%}" async></script>#}
         <style>
             body {
                 display: flex;
@@ -15,45 +15,51 @@
                  background-image: url("{%static 'image/loginImage.jpg' %}");
     }
         </style>
-        
+
     </head>
     <body>
-    <form>
+    <form  method="POST" >
+    {% csrf_token %}
         <h2>Sign up</h2>
             <div>
-            <input type="text" id="userN"  required placeholder="Username *" autofocus >
+            <input type="text" id="userN"  required placeholder="Username *" autofocus name="uname" >
             </div>
             <div>
-                <p id="u"></p>
+                <p id="u">
+                    {{ whatchname }}
+                </p>
             </div>
             <div>
-                <input type="password" id="passd1" required placeholder="Password *" required minlength="4" maxlength="15">
+                <input type="password" id="passd1" name="pass" required placeholder="Password *"  minlength="4" maxlength="15">
             </div>
             <div>
                 <p id="p"></p>
             </div>
             <div>
-                <input type="password" id="passd2" required placeholder="Confirm Password *" required minlength="4" maxlength="15">
+                <input type="password" id="passd2"  name="cpass" required placeholder="Confirm Password *"  minlength="4" maxlength="15">
             </div>
             <div>
-                <p id="m"></p>
+                <p id="m">
+                    {{ watchpass }}
+                </p>
             </div>
             <div>
-                <input type="email" id="email"  required placeholder="Email *" required >
-                
+                <input type="email" id="email" name="em" required placeholder="Email *"  >
+
             </div>
             <div>
-                <p id="e"></p>
+                <p id="e">
+                    {{ whatche }}
+                </p>
             </div>
         <div class="as" title="Click here if you want to sign up as admin">
             <input type="checkbox"  id="_admin" name="-as" title="">
             <label class="check">Sign Up As Admin:</label>
 
         </div>
-        <div>
-        <button type="button" onclick="savedata()">Sign Up</button>
-        
-        </div>
+
+        <button type="submit"  >Sign Up</button>
+
     </form>
     </body>
 </html>
