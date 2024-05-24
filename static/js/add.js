@@ -11,6 +11,7 @@ function categories () {
     }
 }
 
+
 function upload_image() {
     const input_file = document.getElementById("input-file");
     const img_view = document.getElementById("img-view");
