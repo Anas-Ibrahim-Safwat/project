@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from admins.models import Book
 from user.models import Borrow
 # Create your views here.
@@ -15,13 +15,16 @@ def Search(request):
 def View(request):
     return render(request, 'user/view-user.html',{'data': Book.objects.all()})
 
+
 def Borrow(request):
-    borrows = Book.objects.filter(availability=True)
+    borrows = Book.objects.filter(availability="Borrowed")
     return render(request, 'user/borrow-user.html', {'borrows': borrows})
     #return render(request, 'user/borrow-user.html')
 
+
+
 def Browse(request):
-    return render(request, 'user/browse-user.html',{'data':Book.objects.all()})
+    return render(request, 'user/browse-user.html', {'data': Book.objects.all()})
     #return render(request, 'user/browse-user.html')
 
 def Home(request):

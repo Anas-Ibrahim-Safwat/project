@@ -8,7 +8,7 @@
     <title>view list of available books</title>
     <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
     <link rel="stylesheet" href="{%static 'css/add.css'%}">
-    <script src="{%static 'js/add.js'%}""></script>
+    <script src="{%static 'js/add.js'%}"></script>
     <script src=" {%static 'js/user-nav.js' %}"></script>
     <style>
         body {
@@ -33,27 +33,12 @@
             <a href="../browse">Browse Books</a>
         </nav>
 
-
-        <div class="search-container">
-            <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
-            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-            <ul class="search-list" id="searchList"></ul>
-        </div>
-
-
-
-        <!-- <div class="search-container">
-            <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
-            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-            <ul class="search-list" id="searchList"></ul>
-        </div> -->
-
     </header>
     <br>
     <br>
     <div class="hs">
         <label for="_book">Available Books</label>
-        <table id="_book">
+        <table id="_book" style="margin-left:250px ;">
             <thead>
                 <tr>
                     <td>ID</td>

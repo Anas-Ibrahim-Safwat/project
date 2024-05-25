@@ -5,8 +5,8 @@
     <title>List of borrow book</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{%static 'css/user-nav.css'%}">
-    <link rel="stylesheet" href="{%static 'css/borrow-book-by-user.css'%}">
-    <script src="{%static 'js/borrow-book-by-user.js'%}"></script>
+    <link rel="stylesheet" href="{%static 'css/add.css'%}">
+{#    <script src="{%static 'js/borrow-book-by-user.js'%}"></script>#}
     <style>
         body{
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{%static 'image/homePage.jpeg'%}");
@@ -28,19 +28,13 @@
             <a href="../borrow">Borrowed Books</a>
             <a href="../browse">Browse Books</a>
         </nav>
-    
-    
-        <!-- <div class="search-container">
-            <input type="text" placeholder="Search for a book.." class="search-bar" id="searchInput">
-            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-            <ul class="search-list" id="searchList"></ul>
-        </div> -->
+
     </header>
     <br>
     <div>
-        <caption><b>Name of books that borrowed by this user</b></caption>
+        <label for="_book"><b>Name of books that borrowed by this user</b></label>
         <br>
-        <table id="Books">
+        <table id="_book" style="margin-left: 600px">
             <thead>
                 <tr>
                     <th>number</th>
@@ -51,13 +45,12 @@
                 {% for borrow in borrows %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ borrow.book.title }}</td>
+                    <td>{{ borrow.name }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
-
                 </tr>
             </tfoot>
         </table>
