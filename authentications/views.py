@@ -18,15 +18,18 @@ def login(request):
 
 def signUp(request):
     if request.method == "POST":
+
+        username = request.POST.get("uname")
+        if Users.objects.filter(username=username).exists():
+            return render(request, 'authentications/sign_up.html',
+                          {'whatchname': "Choose another username to be unique"})
+
         password = request.POST.get("pass")
         cpass = request.POST.get("cpass")
         if password != cpass:
             return render(request, 'authentications/sign_up.html',
                           {'whatchpass': "Confirm Passwords do not match Password!"})
-        username = request.POST.get("uname")
-        if Users.objects.filter(username=username).exists():
-            return render(request, 'authentications/sign_up.html',
-                          {'whatchname': "Choose another username to be unique"})
+
         email = request.POST.get("em")
         if Users.objects.filter(email=email).exists():
             return render(request, 'authentications/sign_up.html',
@@ -34,10 +37,13 @@ def signUp(request):
         is_admin = request.POST.get("-as")
         if is_admin is None:
             is_admin = False
+        elif is_admin:
+            is_admin = True
+
         u = Users(username=username, password=password, cpass=cpass, email=email,
                   is_admin=is_admin)
         u.save()
-        return render(request, 'authentications/login.html')
+        return redirect("/login")
     return render(request, 'authentications/sign_up.html')
 
 

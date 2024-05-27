@@ -28,6 +28,7 @@ def add_new_book(request):
         else:
             book.save()
             messages.success(request, 'Book has been added successfully')
+            return redirect("view")
     return render(request, 'admins/add-admin.html')
 
 
@@ -58,7 +59,7 @@ def go_edit(request, pk):
         book.category = request.POST.get("book category")
         book.availability = request.POST.get("Book Availability")
         book.save()
-        return redirect('admins/')
+        return redirect('/admins/view')
     return render(request, 'admins/go-edit-admin.html', {'data': book})
 
 
