@@ -24,16 +24,7 @@
     </style>
 </head>
 <body>
-{% if messages %}
-<ul class="messages" style="background-color: #ede0cf;color: #4e342e; font-family: Arial, sans-serif; font-size: 25px " >
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-        {{ message }}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
+
 <header class = "header">
     <a href="#" class="logo">Book Store</a>
     <nav class ="navbar">
@@ -43,6 +34,18 @@
         <a href="../delete">Delete</a>
     </nav>
 </header>
+
+{% if messages %}
+<ul class="messages" style="background-color: #ede0cf;color: #4e342e; font-family: Arial, sans-serif; font-size: 25px; 
+border-radius: 40px; width:280px; text-align: center; margin-left:43%; margin-top: 10px;" >
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}

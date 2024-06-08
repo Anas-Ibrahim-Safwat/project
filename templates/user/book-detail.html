@@ -41,7 +41,9 @@
 </header>
 <body>
 {% if messages %}
-<ul class="messages" style="background-color: #ede0cf;color: #4e342e; font-family: Arial, sans-serif; font-size: 25px " >
+<ul class="messages" style="background-color: #ede0cf;color: #4e342e; 
+font-family: Arial, sans-serif; font-size: 25px;
+ border-radius: 40px; width:270px; text-align: center; margin-left:43%;margin-top: 10px;" >
     {% for message in messages %}
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
