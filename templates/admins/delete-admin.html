@@ -48,6 +48,16 @@
 </head>
 
 <body>
+{% if messages %}
+<ul class="messages" style="background-color: #ede0cf;color: #4e342e; font-family: Arial, sans-serif; font-size: 25px " >
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
     <main>
         <form method="POST" action="{% url 'delete' %}">
             <div>

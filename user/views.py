@@ -34,13 +34,13 @@ def Home(request):
 
 def Detail(request, pk):
      book = get_object_or_404(Book, b_id=pk)
-     if request.method=="POST":
-         if book.availability=="Available":
-             book.availability="Borrowed"
+     if request.method == "POST":
+         if book.availability == "Available":
+             book.availability = "Borrowed"
              book.save()
              messages.success(request, 'Book has been borrowed successfully')
          else:
              messages.warning(request, 'Book cannot be borrowed')
-             return redirect( 'detail',pk)
+             return redirect('detail', pk)
      return render(request, 'user/book-detail.html', {'datum': book})
     #return render(request, 'user/book-detail.html')
