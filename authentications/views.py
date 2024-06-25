@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from .models import Users
 # Create your views here.
 
@@ -16,36 +17,36 @@ def login(request):
     return render(request, 'authentications/login.html')
 
 
-def signUp(request):
-    if request.method == "POST":
-
-        username = request.POST.get("uname")
-        if Users.objects.filter(username=username).exists():
-            return render(request, 'authentications/sign_up.html',
-                          {'whatchname': "Choose another username to be unique"})
-
-        password = request.POST.get("pass")
-        cpass = request.POST.get("cpass")
-        if password != cpass:
-            return render(request, 'authentications/sign_up.html',
-                          {'whatchpass': "Confirm Passwords do not match Password!"})
-
-        email = request.POST.get("em")
-        if Users.objects.filter(email=email).exists():
-            return render(request, 'authentications/sign_up.html',
-                          {'whatche': "This email is already exist"})
-        is_admin = request.POST.get("-as")
-        if is_admin is None:
-            is_admin = False
-        elif is_admin:
-            is_admin = True
-
-        u = Users(username=username, password=password, cpass=cpass, email=email,
-                  is_admin=is_admin)
-        u.save()
-        return redirect("/login")
+def SignUp(request):
+    if request.method == 'POST':
+        username=request.POST.get('username')
+        password=request.POST.get('pass')
+        password1=request.POST.get('pass1')
+        email=request.POST.get('email')
+        isadmin=request.POST.get('_as')
+        if isadmin == 'on':
+                isadmin = True
+        else:
+                isadmin = False
+        z =Users (username=username, password=password, cpass=password1, email=email, is_admin=isadmin)
+        z.save()
+        return redirect('/login')
     return render(request, 'authentications/sign_up.html')
 
 
 def home(request):
     return render(request, 'authentications/homeWithNav.html')
+def check_user_exists(request):
+    email =request.GET.get('email')
+    check =Users.objects.filter(email=email)
+    if len(check)==0:
+        return JsonResponse({'status':0,'message':'Not Exist'})
+    else:
+        return JsonResponse({'status':1,'message':'Exist'})
+def check_pass(request):
+    pass1 =request.GET.get('pass')
+    cpass1 =request.GET.get('pass1')
+    if pass1==cpass1:
+        return JsonResponse({'status':0,'message':'Confirm pass and pass is same'})
+    else:
+        return JsonResponse({'status':1,'message':'Confirm pasword do not match password'})

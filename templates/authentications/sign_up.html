@@ -1,65 +1,61 @@
 {%load static%}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+    <head> 
         <title>Sign_Up</title>
         <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="{% static 'css/sign_up.css'%}" />
-{#        <script src="{% static 'js/signup.js'%}" async></script>#}
+        <script src="{% static 'js/signup.js' %}"></script>
         <style>
             body {
                 display: flex;
-                 justify-content: center;
-                 align-items: center;
-                 height: 100vh;
-                 background-image: url("{%static 'image/loginImage.jpg' %}");
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-image: url("{%static 'image/loginImage.jpg' %}");
     }
         </style>
-
+        
     </head>
     <body>
-    <form  method="POST" >
-    {% csrf_token %}
+    <form method="POST" id="signupform">
+        {% csrf_token %}
         <h2>Sign up</h2>
             <div>
-            <input type="text" id="userN"  required placeholder="Username *" autofocus name="uname" >
+            <input type="text" id="userN" name="username"  required placeholder="Username *" autofocus >
             </div>
             <div>
-                <p id="u">
-                    {{ whatchname }}
-                </p>
+                <p id="u"></p>
             </div>
             <div>
-                <input type="password" id="passd1" name="pass" required placeholder="Password *"  minlength="4" maxlength="15">
+                <input type="password" id="passd1" name="pass" required placeholder="Password *" required minlength="2" maxlength="15" onkeyup="check_pass()">
             </div>
             <div>
                 <p id="p"></p>
             </div>
             <div>
-                <input type="password" id="passd2"  name="cpass" required placeholder="Confirm Password *"  minlength="4" maxlength="15">
+                <input type="password" id="passd2" name="pass1" required placeholder="Confirm Password *" required minlength="2" maxlength="15" onkeyup="check_pass()">
             </div>
             <div>
-                <p id="m">
-                    {{ watchpass }}
-                </p>
+                <p id="m"></p>
             </div>
             <div>
-                <input type="email" id="email" name="em" required placeholder="Email *"  >
-
+                <input type="email" id="email" name="email" required placeholder="Email *" required onkeyup="check_email()">
+                
             </div>
             <div>
-                <p id="e">
-                    {{ whatche }}
-                </p>
+                <p id="e"></p>
             </div>
         <div class="as" title="Click here if you want to sign up as admin">
-            <input type="checkbox"  id="_admin" name="-as" title="">
+            <input type="checkbox"  id="_admin" name="_as" title="">
             <label class="check">Sign Up As Admin:</label>
 
         </div>
-
-        <button type="submit"  >Sign Up</button>
-
+        <div>
+            <a href="/login/">
+                <button type="submit" id="submit-btn" >Sign Up</button>
+            </a>
+        </div>
     </form>
-    </body>
 </html>
